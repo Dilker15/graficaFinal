@@ -1,0 +1,17 @@
+C:\Users\hp\Desktop\9no-Sem -1-2024\Prog-Grafica\ConsoleApp2\ConsoleApp2\bin\Debug\ConsoleApp2.exe.config
+C:\Users\hp\Desktop\9no-Sem -1-2024\Prog-Grafica\ConsoleApp2\ConsoleApp2\bin\Debug\ConsoleApp2.exe
+C:\Users\hp\Desktop\9no-Sem -1-2024\Prog-Grafica\ConsoleApp2\ConsoleApp2\bin\Debug\ConsoleApp2.pdb
+C:\Users\hp\Desktop\9no-Sem -1-2024\Prog-Grafica\ConsoleApp2\ConsoleApp2\bin\Debug\OpenTK.dll
+C:\Users\hp\Desktop\9no-Sem -1-2024\Prog-Grafica\ConsoleApp2\ConsoleApp2\bin\Debug\OpenTK.GLControl.dll
+C:\Users\hp\Desktop\9no-Sem -1-2024\Prog-Grafica\ConsoleApp2\ConsoleApp2\bin\Debug\OpenTK.pdb
+C:\Users\hp\Desktop\9no-Sem -1-2024\Prog-Grafica\ConsoleApp2\ConsoleApp2\bin\Debug\OpenTK.xml
+C:\Users\hp\Desktop\9no-Sem -1-2024\Prog-Grafica\ConsoleApp2\ConsoleApp2\bin\Debug\OpenTK.GLControl.pdb
+C:\Users\hp\Desktop\9no-Sem -1-2024\Prog-Grafica\ConsoleApp2\ConsoleApp2\bin\Debug\OpenTK.GLControl.xml
+C:\Users\hp\Desktop\9no-Sem -1-2024\Prog-Grafica\ConsoleApp2\ConsoleApp2\obj\Debug\ConsoleApp2.csproj.AssemblyReference.cache
+C:\Users\hp\Desktop\9no-Sem -1-2024\Prog-Grafica\ConsoleApp2\ConsoleApp2\obj\Debug\ConsoleApp2.csproj.SuggestedBindingRedirects.cache
+C:\Users\hp\Desktop\9no-Sem -1-2024\Prog-Grafica\ConsoleApp2\ConsoleApp2\obj\Debug\ConsoleApp2.csproj.CoreCompileInputs.cache
+C:\Users\hp\Desktop\9no-Sem -1-2024\Prog-Grafica\ConsoleApp2\ConsoleApp2\obj\Debug\ConsoleApp2.csproj.CopyComplete
+C:\Users\hp\Desktop\9no-Sem -1-2024\Prog-Grafica\ConsoleApp2\ConsoleApp2\obj\Debug\ConsoleApp2.exe
+C:\Users\hp\Desktop\9no-Sem -1-2024\Prog-Grafica\ConsoleApp2\ConsoleApp2\obj\Debug\ConsoleApp2.pdb
+C:\Users\hp\Desktop\9no-Sem -1-2024\Prog-Grafica\ConsoleApp2\ConsoleApp2\bin\Debug\Newtonsoft.Json.dll
+C:\Users\hp\Desktop\9no-Sem -1-2024\Prog-Grafica\ConsoleApp2\ConsoleApp2\bin\Debug\Newtonsoft.Json.xml
