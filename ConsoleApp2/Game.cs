@@ -12,10 +12,13 @@ using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using Newtonsoft.Json;
 using System.Runtime.InteropServices.ComTypes;
+using System.Windows.Forms;
+using System.Drawing.Drawing2D;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace ConsoleApp2
 {
-    public class Game
+    public partial class Game
     {
 
         private GameWindow miVentana;
@@ -29,7 +32,8 @@ namespace ConsoleApp2
         private String rutaFlorero = "C:\\Users\\hp\\Documents\\ObjetosOpenTK\\florero.json";
         private String rutaTele = "C:\\Users\\hp\\Documents\\ObjetosOpenTK\\tele.json";
         private String rutaEscenario = "C:\\Users\\hp\\Documents\\ObjetosOpenTK\\escenario.json";
-
+        private Accion accion;
+        private Objeto pelota;
 
         private float camX = 0, camY=0, camZ=0;
         
@@ -47,24 +51,29 @@ namespace ConsoleApp2
             tele = new Objeto(new Punto(0,0,0));
             florero = new Objeto(new Punto(0,0,0));
             equipoMusica = new Objeto(new Punto(0,0,0));
-
+            pelota = new Objeto(new Punto(0, 0, 0));
+            //this.cargarPelota();
+           
             this.cargarObjetoTv();
             this.cargarObjetoEquipo();
             this.cargarObjetoFlorero();
-        
 
-            escenario =new Escenario(new Punto(0.2f,0.3f,-1));
+            accion = new Accion(pelota, 0.5f, 45, -9.8f);
+            
+            escenario =new Escenario(new Punto(0,0,0));
 
-            //escenario.escalar(new Punto(0, 0, 0));
-
-            tele.rotar(45, new Punto(0, 1, 0));
+            //escenario.escalar(new Punto(2,1,1));
+            //escenario.rotar(45, new Punto(0, 0, 1));
+            // tele.rotar(45, new Punto(0, 1, 0));
             //florero.trasladar(new Punto(0, 0, 0));
             equipoMusica.getParte("cerebro").trasladar(new Punto(0, 0, -4));
-            equipoMusica.getParte("parlanteDerecho").trasladar(new Punto(0, 0,-8));
+            equipoMusica.getParte("cerebro").rotar(30, new Punto(1, 0, 0));
+            //equipoMusica.getParte("parlanteDerecho").trasladar(new Punto(0, 0,-8));
 
             escenario.addObjeto("televison",tele);
             escenario.addObjeto("Equipo",equipoMusica);
             escenario.addObjeto("Florero",florero);
+            escenario.addObjeto("pelota", this.pelota);
 
             
            
@@ -97,6 +106,7 @@ namespace ConsoleApp2
                 {
                     string jsonContent = File.ReadAllText(ruta);
                     return JsonConvert.DeserializeObject<Objeto>(jsonContent);
+                   
                 }
                 catch (Exception error)
                 {
@@ -108,6 +118,7 @@ namespace ConsoleApp2
         }
 
        
+
 
         private void MiVentana_KeyDown(object sender, OpenTK.Input.KeyboardKeyEventArgs e)
         {
@@ -182,7 +193,7 @@ namespace ConsoleApp2
             
             GL.MatrixMode(MatrixMode.Projection);
             GL.LoadIdentity();
-            
+            accion.Actualizar((float)e.Time);
             // Configurar una proyección en perspectiva con un ángulo de visión más amplio
             Matrix4 perspective = Matrix4.CreatePerspectiveFieldOfView(MathHelper.DegreesToRadians(60f), (float)miVentana.Width / miVentana.Height, 0.1f, 100f);
             GL.LoadMatrix(ref perspective);
@@ -242,6 +253,7 @@ namespace ConsoleApp2
             else
             {
                 this.iniciarPuntosTele();
+                
                 Console.WriteLine("Se cargo desde el codigo el  objeto: Tele ");
             }
         }
@@ -617,12 +629,72 @@ namespace ConsoleApp2
             this.tele.addParte("soporte", parteTv);
 
 
+            //-------------------PELOTA ---------------------------
+
+
+            Parte partePelota = new Parte();
+            float half = 0.1f / 2.0f;
+            float offsetX = 3f;
+            // Cara frontal
+            caraUnica = new Cara();
+            caraUnica.addPunto(new Punto(-half-offsetX, half, half));   // Superior izquierda
+            caraUnica.addPunto(new Punto(half - offsetX, half, half));    // Superior derecha
+            caraUnica.addPunto(new Punto(half - offsetX, -half, half));   // Inferior derecha
+            caraUnica.addPunto(new Punto(-half - offsetX, -half, half));  // Inferior izquierda
+            partePelota.agregarCara("frente", caraUnica);
+
+            // Cara trasera
+            caraUnica = new Cara();
+            caraUnica.addPunto(new Punto(-half - offsetX, half, -half));
+            caraUnica.addPunto(new Punto(half -offsetX, half, -half));
+            caraUnica.addPunto(new Punto(half - offsetX, -half, -half));
+            caraUnica.addPunto(new Punto(-half - offsetX, -half, -half));
+            partePelota.agregarCara("trasera", caraUnica);
+
+            // Cara superior
+            caraUnica = new Cara();
+            caraUnica.addPunto(new Punto(-half - offsetX, half, half));
+            caraUnica.addPunto(new Punto(half - offsetX, half, half));
+            caraUnica.addPunto(new Punto(half - offsetX, half, -half));
+            caraUnica.addPunto(new Punto(-half - offsetX, half, -half));
+            partePelota.agregarCara("superior", caraUnica);
+
+            // Cara inferior
+            caraUnica = new Cara();
+            caraUnica.addPunto(new Punto(-half - offsetX, -half, half));
+            caraUnica.addPunto(new Punto(half - offsetX, -half, half));
+            caraUnica.addPunto(new Punto(half - offsetX, -half, -half));
+            caraUnica.addPunto(new Punto(-half - offsetX, -half, -half));
+            partePelota.agregarCara("inferior", caraUnica);
+
+            // Cara izquierda
+            caraUnica = new Cara();
+            caraUnica.addPunto(new Punto(-half - offsetX, half, half));
+            caraUnica.addPunto(new Punto(-half - offsetX, half, -half));
+            caraUnica.addPunto(new Punto(-half - offsetX, -half, -half));
+            caraUnica.addPunto(new Punto(-half - offsetX, -half, half));
+            partePelota.agregarCara("izquierd", caraUnica);
+
+            // Cara derecha
+            caraUnica = new Cara();
+            caraUnica.addPunto(new Punto(half - offsetX, half, half));
+            caraUnica.addPunto(new Punto(half - offsetX, half, -half));
+            caraUnica.addPunto(new Punto(half - offsetX, -half, -half));
+            caraUnica.addPunto(new Punto(half - offsetX, -half, half));
+            partePelota.agregarCara("derecha", caraUnica);
+            this.pelota.addParte("frontal", partePelota);
             this.serializarObjeto(rutaTele, this.tele);
         }
 
+           
+        
 
 
 
+        public void cargarPelota() {
+           
+
+        }
 
 
     }

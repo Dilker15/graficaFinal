@@ -15,3 +15,5 @@ C:\Users\hp\Desktop\9no-Sem -1-2024\Prog-Grafica\ConsoleApp2\ConsoleApp2\obj\Deb
 C:\Users\hp\Desktop\9no-Sem -1-2024\Prog-Grafica\ConsoleApp2\ConsoleApp2\obj\Debug\ConsoleApp2.pdb
 C:\Users\hp\Desktop\9no-Sem -1-2024\Prog-Grafica\ConsoleApp2\ConsoleApp2\bin\Debug\Newtonsoft.Json.dll
 C:\Users\hp\Desktop\9no-Sem -1-2024\Prog-Grafica\ConsoleApp2\ConsoleApp2\bin\Debug\Newtonsoft.Json.xml
+C:\Users\hp\Desktop\9no-Sem -1-2024\Prog-Grafica\ConsoleApp2\ConsoleApp2\obj\Debug\ConsoleApp2.Form1.resources
+C:\Users\hp\Desktop\9no-Sem -1-2024\Prog-Grafica\ConsoleApp2\ConsoleApp2\obj\Debug\ConsoleApp2.csproj.GenerateResource.cache

@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace ConsoleApp2
 {
     public class Objeto
@@ -14,8 +15,8 @@ namespace ConsoleApp2
         public Dictionary<String, Parte> listaDePartes { get; set; }
         public Punto centroDeMasa{ get; set; }
 
+        public List<Accion> listaDeAcciones;
         
-       
         public Matrix4 matrizDeEscalacion { get; set; }
         public Matrix4 matrizDeTraslacion { get; set; }
         public Matrix4 matrizDeRotacionEjeX { get; set; }
